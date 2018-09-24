@@ -61,3 +61,4 @@ console.log(aSet); // ["car", "boat"]
 
 let set2 = new Set(["a", "b", "c", "b", "b", "a"]);
 set2.forEach(item => console.log(item));
+
