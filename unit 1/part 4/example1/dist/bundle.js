@@ -1,0 +1,1 @@
+function otherName(){console.log("Hello World")}"strict mode";function printNum(){return 68}alert("Hello World!"),printNum();

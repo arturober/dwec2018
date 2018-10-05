@@ -1,0 +1,29 @@
+{
+  "name": "example1",
+  "version": "1.0.0",
+  "description": "Unit 1 part 4 example 1",
+  "main": "index.js",
+  "scripts": {
+    "hello": "echo \"Hello world\"",
+    "start": "concurrently \"npm run serve\" \"npm run build:watch\"",
+    "pretest": "echo \"Starting tests!\"",
+    "test": "eslint index.js",
+    "posttest": "echo \"Tests OK!\"",
+    "serve": "lite-server",
+    "build": "uglifyjs -mc -o dist/bundle.js js/*.js",
+    "build:watch": "watch \"npm run build\" ./js"
+  },
+  "author": "Arturo",
+  "license": "ISC",
+  "dependencies": {
+    "handlebars": "^4.0.4"
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "eslint": "^5.6.1",
+    "lite-server": "^2.4.0",
+    "uglify": "^0.1.5",
+    "uglify-es": "^3.3.9",
+    "watch": "^1.0.2"
+  }
+}
