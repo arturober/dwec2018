@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
+    <a href="index.html">Product list</a>
+    <form id="addProduct">
+        <p><input type="text" name="name" id="name" placeholder="Product's name" required></p>
+        <p><input type="text" name="description" id="description" placeholder="Description" required></p>
+        <p>Photo: <input type="file" name="photo" id="photo" required></p>
+        <p><img src="" alt="" id="imgPreview"></p>
+        <button type="submit">Add</button>
+    </form>
+    <script src="dist/commons.bundle.js"></script>
     <script src="dist/add-product.bundle.js"></script>
 </body>
 </html>
