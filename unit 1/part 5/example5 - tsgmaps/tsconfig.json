@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-        "target": "es5", // Compile into ES5
+        "target": "es2015", // Compile into ES5
         "moduleResolution": "node", // NodeJS require format for importing/exporting modules
         "sourceMap": true, // Useful for debugging
         "removeComments": false, // For debugging (in production mode they’ll be removed anyway)

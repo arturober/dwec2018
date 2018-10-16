@@ -1,12 +1,18 @@
-import {load, urlSettings} from 'google-maps-promise';
+import { urlSettings } from 'google-maps-promise';
+import {Geolocation} from './geolocation.class';
+import { GMap } from './gmap.class';
 
-urlSettings.key = 'AIzaSyBRo2dAm9wYZ4bXK2eJupQkCSFWmRo5P38';
+urlSettings.key = 'AIzaSyAX2skeHPuTfAp3kDCq8orUcCFHqhPqXJg';
+urlSettings.libraries = ['places'];
 
-load().then(gmaps => {
-    navigator.geolocation.getCurrentPosition(pos => {
-        new gmaps.Map(document.getElementById('map'), {
-            center: new gmaps.LatLng(pos.coords.latitude, pos.coords.longitude),
-            zoom: 18
-        });
-    });
+document.addEventListener('DOMContentLoaded', async e => {
+    let coords = await Geolocation.getPosition();
+    let divMap = <HTMLDivElement>document.getElementById('map');
+    let gmap = new GMap(divMap, coords);
+    await gmap.loadMap();
+    gmap.createMarker(coords, 'blue');
+
+    const map = gmap.getMap();
+    
+    gmap.createAutocomplete(<HTMLInputElement>document.getElementById('search'));
 });
