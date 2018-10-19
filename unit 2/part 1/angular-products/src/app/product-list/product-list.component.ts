@@ -10,7 +10,9 @@ export class ProductListComponent implements OnInit {
   title = 'My product\'s list';
   headers = { image: 'Image', description: 'Product', price: 'Price', available: 'Available' };
   products: Product[] = [];
+  productsShow: Product[] = [];
   showImage = true;
+  search = '';
 
   constructor() {}
 
@@ -35,7 +37,29 @@ export class ProductListComponent implements OnInit {
         price: 96.95,
         imageUrl: 'assets/motherboard.jpg',
         rating: 4
+      },
+      {
+        id: 3,
+        description: 'HDD Hard Drive',
+        available: new Date('2017-09-15'),
+        price: 45.55,
+        imageUrl: 'assets/hdd.jpg',
+        rating: 2
+      },
+      {
+        id: 4,
+        description: 'DDR3 8GB RAM',
+        available: new Date('2018-09-15'),
+        price: 75.95,
+        imageUrl: 'assets/ram.jpg',
+        rating: 3
       }
     ];
+    this.productsShow = this.products;
+  }
+
+  filter() {
+    this.productsShow = this.products
+     .filter(p => p.description.toLocaleLowerCase().includes(this.search.toLocaleLowerCase()));
   }
 }
