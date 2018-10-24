@@ -1,50 +1,11 @@
 <div class="card">
   <div class="card-header bg-primary text-white">
     {{title}}
-    <button class="btn btn-sm btn-light ml-4" (click)="showAddProduct = true"
-      *ngIf="!showAddProduct">
-            New Product</button>
+    <button class="btn btn-sm btn-light ml-4" (click)="showAddProduct = true" *ngIf="!showAddProduct">
+      New Product</button>
   </div>
   <div class="card-block">
-    <form class="form m-3" *ngIf="showAddProduct" (ngSubmit)="addProduct()">
-      <div class="form-row">
-        <div class="form-group col">
-          <label for="filterDesc">Description:</label>
-          <input type="text"class="form-control" name="description"
-             placeholder="Description" [(ngModel)]="newProduct.description">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col">
-          <label for="filterDesc">Price:</label>
-          <input type="number" class="form-control" name="price" placeholder="Date"
-            [(ngModel)]="newProduct.price">
-        </div>
-        <div class="form-group col">
-          <label for="filterDesc">Available:</label>
-          <input type="date" class="form-control" name="available" placeholder="Available date"
-            [(ngModel)]="newProduct.available">
-        </div>
-      </div>
-
-      <div class="form-row">
-        <div class="form-group col">
-          <label for="filterDesc">Image:</label>
-          <input type="file" #fileInput (change)="changeImage(fileInput)" class="form-control" name="image">
-        </div>
-        <div class="col prod-image">
-          <img alt="" [src]="newProduct.imageUrl">
-        </div>
-      </div>
-
-      <div>
-        <button type="submit" class="btn btn-primary mr-3">Add Product</button>
-        <button type="button" class="btn btn-danger" (click)="showAddProduct = false"> Cancel</button>
-      </div>
-      <p>{{newProduct | json}}</p>
-    </form>
-
+    <product-form *ngIf="showAddProduct" (cancel)="showAddProduct = false" (add)="addProduct($event)"></product-form>
     <form class="form mt-3" *ngIf="!showAddProduct">
       <div class="form-group row">
         <label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filter:</label>
@@ -55,29 +16,20 @@
           Filtered by: {{search}}</label>
       </div>
     </form>
-    <div class="table-responsive" *ngIf="!showAddProduct && products.length">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>
-              <button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary': !showImage}" (click)="toggleImage()">
-                {{showImage?'Hide':'Show'}} images
-              </button>
-            </th>
-            <th>{{headers.description}}</th>
-            <th>{{headers.price}}</th>
-            <th>{{headers.available}}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of products | productFilter:search; let i = index">
-            <td><img [src]="product.imageUrl" *ngIf="showImage"></td>
-            <td>{{product.description | stringLength:16}}</td>
-            <td>{{product.price | currency:'EUR':'symbol'}}</td>
-            <td>{{product.available | date:'dd/MM/y'}}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div *ngIf="!showAddProduct && products.length">
+      <div class="row headers no-gutters">
+        <div class="col-3">
+          <button class="btn btn-sm" [ngClass]="{'btn-danger': showImages, 'btn-primary': !showImages}" (click)="toggleImage()">
+            {{showImage?'Hide':'Show'}} images
+          </button></div>
+        <div class="col-4">{{headers.description}}</div>
+        <div class="col">{{headers.price}}</div>
+        <div class="col">{{headers.available}}</div>
+        <div class="col">{{headers.rating}}</div>
+      </div>
+      <product-item class="row no-gutters" [product]="product" [showImage]="showImage"
+        *ngFor="let product of products | productFilter:search">
+      </product-item>
     </div>
   </div>
 </div>
