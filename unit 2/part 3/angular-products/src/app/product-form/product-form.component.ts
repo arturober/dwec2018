@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Product } from '../interfaces/product';
+import { ProductsService } from '../services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'product-form',
@@ -8,11 +10,12 @@ import { Product } from '../interfaces/product';
 })
 export class ProductFormComponent implements OnInit {
   newProduct: Product;
-  @Output() cancel = new EventEmitter<void>();
-  @Output() add = new EventEmitter<Product>();
   @ViewChild('fileInput') fileInput: ElementRef;
 
-  constructor() { }
+  constructor(
+    private productsService: ProductsService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.resetForm();
@@ -28,29 +31,27 @@ export class ProductFormComponent implements OnInit {
   }
 
   addProduct() {
-    this.add.emit(this.newProduct);
-    this.cancel.emit();
-    this.resetForm();
+    this.productsService.addProduct(this.newProduct).subscribe(
+      prod => this.router.navigate(['/products']),
+      error => console.error(error)
+    );
   }
 
   resetForm() {
     const today = new Date();
     this.newProduct = {
       description: '',
-      id: -1,
       available: `${today.getFullYear()}-${(today.getMonth() + 1).toString().padStart(2, '0')}` +
                  `-${today.getDate().toString().padStart(2, '0')}`,
       imageUrl: '',
       price: 0,
-      rating: 0
     };
     console.log(this.fileInput.nativeElement);
     this.fileInput.nativeElement.value = '';
   }
 
   cancelForm() {
-    this.resetForm();
-    this.cancel.emit();
+    this.router.navigate(['/products']);
   }
 
 }

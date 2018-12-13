@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { ProductsService } from '../services/products.service';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'product-list',
@@ -14,12 +15,16 @@ export class ProductListComponent implements OnInit {
              rating: 'Rating' };
   products: Product[] = [];
   showImage = true;
-  showAddProduct = false;
   search = '';
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private titleService: Title,
+    private productsService: ProductsService
+  ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Angular products | Products');
+
     this.productsService.getProducts().subscribe(
       products => this.products = products,
       error => console.error(error),
