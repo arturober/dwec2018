@@ -21,6 +21,18 @@ export class ProductsService {
       })));
   }
 
+  getProduct(id: number): Observable<Product> {
+    console.log(id);
+    return this.http.get<{product: Product}>(`${this.BASE_URL}/${id}`)
+      .pipe(
+        map(resp => {
+          const p = resp.product;
+          p.imageUrl = environment.base_url + p.imageUrl;
+          return p;
+        })
+      );
+  }
+
   changeRating(id: number, rating: number): Observable<number> {
     return this.http.put<{rating: number}>(`${this.BASE_URL}/${id}/rating`, {rating})
       .pipe(map(resp => resp.rating));

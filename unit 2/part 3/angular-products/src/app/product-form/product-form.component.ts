@@ -1,24 +1,38 @@
 import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { ProductsService } from '../services/products.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CanComponentDeactivate } from '../guards/can-deactivate.guard';
 
 @Component({
   selector: 'product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.css']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, CanComponentDeactivate {
   newProduct: Product;
+  edit = false;
   @ViewChild('fileInput') fileInput: ElementRef;
 
   constructor(
+    private route: ActivatedRoute,
     private productsService: ProductsService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.resetForm();
+    const id = +this.route.snapshot.params.id;
+    if (!isNaN(id)) {
+      this.edit = true;
+      this.productsService.getProduct(id).subscribe(
+        product => {
+          this.newProduct = product;
+          this.newProduct.available = this.newProduct.available.substr(0, 10);
+        }
+      );
+    } else {
+      this.resetForm();
+    }
   }
 
   changeImage(fileInput: HTMLInputElement) {
@@ -54,4 +68,7 @@ export class ProductFormComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
+  canDeactivate(): boolean {
+    return confirm('If you exit this page, unsaved data will be lost.');
+  }
 }
