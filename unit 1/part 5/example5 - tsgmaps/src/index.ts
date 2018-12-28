@@ -2,7 +2,7 @@ import { urlSettings } from 'google-maps-promise';
 import {Geolocation} from './geolocation.class';
 import { GMap } from './gmap.class';
 
-urlSettings.key = 'AIzaSyAX2skeHPuTfAp3kDCq8orUcCFHqhPqXJg';
+urlSettings.key = 'AIzaSyCtnRTDd1kcYAWGNRsgl2So2D1FbgVkngg';
 urlSettings.libraries = ['places'];
 
 document.addEventListener('DOMContentLoaded', async e => {

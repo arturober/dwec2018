@@ -1,0 +1,21 @@
+<div class="card">
+  <h4 class="card-header bg-primary text-white">{{product.description}}</h4>
+  <div class="card-block p-3  text-center">
+      <img [src]="product.imageUrl" alt=""
+          [title]="product.description | uppercase">
+
+      <div>{{ product.price | currency:'EUR':'symbol' }}</div>
+      <div>{{ product.available | date:'dd/MM/y' }}</div>
+      <div>
+          <star-rating [rating]="product.rating" (changeRating)="changeRating($event)"></star-rating>
+      </div>
+
+      <button class="btn btn-primary" (click)="goBack()">
+          Go back
+      </button>
+
+      <button type="button" class="btn btn-default ml-3" (click)="edit()">
+        Edit product
+      </button>
+  </div>
+</div>

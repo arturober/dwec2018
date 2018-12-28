@@ -1,0 +1,36 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { ProductListComponent } from './product-list/product-list.component';
+import { ProductFormComponent } from './product-form/product-form.component';
+import { NumericIdGuard } from '../guards/numeric-id.guard';
+import { CanDeactivateGuard } from '../guards/can-deactivate.guard';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductDetailResolve } from './resolvers/product-detail-resolve.service';
+
+const routes: Routes = [
+  { path: '', component: ProductListComponent},
+  { path: 'add', component: ProductFormComponent},
+  {
+    path: 'edit/:id',
+    component: ProductFormComponent,
+    canActivate: [NumericIdGuard],
+    canDeactivate: [CanDeactivateGuard],
+    resolve: {
+      product: ProductDetailResolve
+    }
+  },
+  {
+    path: ':id',
+    component: ProductDetailComponent,
+    canActivate: [NumericIdGuard],
+    resolve: {
+      product: ProductDetailResolve
+    }
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class ProductsRoutingModule { }
