@@ -1,0 +1,39 @@
+<h1 [appSetColor]="color">Click me!</h1>
+<table>
+  <tr>
+    <td [appSetColor]="color">Value 1</td>
+    <td [appSetColor]="color">Value 2</td>
+  </tr>
+  <tr>
+    <td [appSetColor]="color">Value 3</td>
+    <td [appSetColor]="color">Value 4</td>
+  </tr>
+</table>
+<select [(ngModel)]="color">
+  <option value="green">Green</option>
+  <option value="red">Red</option>
+  <option value="#06F">Blue</option>
+ </select>
+
+<hr>
+
+<div *appRepeatTimes="5; let i = index">
+  {{i}} welcome works!
+</div>
+
+<hr>
+
+Number of columns:
+<select [(ngModel)]="numNames">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+
+<table>
+  <tr *appForNum="let names3 from names step numNames">
+    <td *ngFor="let name of names3">{{name}}</td>
+  </tr>
+</table>
+
