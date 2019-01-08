@@ -9,12 +9,15 @@ import { ProductDetailResolve } from './resolvers/product-detail-resolve.service
 
 const routes: Routes = [
   { path: '', component: ProductListComponent},
-  { path: 'add', component: ProductFormComponent},
+  {
+    path: 'add',
+    component: ProductFormComponent,
+    canDeactivate: [CanDeactivateGuard]
+  },
   {
     path: 'edit/:id',
     component: ProductFormComponent,
     canActivate: [NumericIdGuard],
-    canDeactivate: [CanDeactivateGuard],
     resolve: {
       product: ProductDetailResolve
     }

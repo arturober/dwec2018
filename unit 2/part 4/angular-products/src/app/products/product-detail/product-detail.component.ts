@@ -7,7 +7,7 @@ import { Product } from '../interfaces/product';
 @Component({
   selector: 'product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.css']
+  styleUrls: ['./product-detail.component.css'],
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;

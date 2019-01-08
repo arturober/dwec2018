@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { AppRoutingModule } from './app-routing.module';
 import { MenuModule } from './menu/menu.module';
+import { ModalsModule } from './modals/modals.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MenuModule } from './menu/menu.module';
     HttpClientModule,
     RouterModule,
     AppRoutingModule,
-    MenuModule
+    MenuModule,
+    NgbModule,
+    ModalsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

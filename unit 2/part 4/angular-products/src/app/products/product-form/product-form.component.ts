@@ -3,6 +3,11 @@ import { Product } from '../interfaces/product';
 import { ProductsService } from '../services/products.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CanComponentDeactivate } from '../../guards/can-deactivate.guard';
+import { NgForm } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmModalComponent } from 'src/app/modals/confirm-modal/confirm-modal.component';
+import { from, Observable, of } from 'rxjs';
+import { switchMap, map, catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'product-form',
@@ -13,11 +18,13 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
   newProduct: Product;
   edit = false;
   @ViewChild('fileInput') fileInput: ElementRef;
+  @ViewChild('formProd') formProd: NgForm;
 
   constructor(
     private route: ActivatedRoute,
     private productsService: ProductsService,
-    private router: Router
+    private router: Router,
+    private modalService: NgbModal
   ) { }
 
   ngOnInit() {
@@ -64,7 +71,30 @@ export class ProductFormComponent implements OnInit, CanComponentDeactivate {
     this.router.navigate(['/products']);
   }
 
-  canDeactivate(): boolean {
-    return confirm('If you exit this page, unsaved data will be lost.');
+  canDeactivate(): Observable<boolean> {
+    if (this.formProd.dirty && this.formProd.valid) {
+      const modalRef = this.modalService.open(ConfirmModalComponent);
+      modalRef.componentInstance.title = 'Save changes';
+      modalRef.componentInstance.body  = 'If you leave this page, all changes will be lost. Do you want to save changes?';
+
+      return from(modalRef.result).pipe(
+        switchMap(resp => {
+          if (resp) {
+            return this.productsService.addProduct(this.newProduct).pipe(
+              map(p => true),
+              catchError(e => {
+                alert('Error saving product!');
+                return of(false);
+              })
+            );
+          } else {
+            return of(true);
+          }
+        }),
+        catchError(e => of(false))
+      );
+    }
+
+    return of(true);
   }
 }
