@@ -1,0 +1,16 @@
+<button appGoogleLogin type="button" class="btn btn-danger"
+ (loginOk)="loggedGoogle($event)" (loginError)="errorGoogle($event)">
+ <i class="fab fa-google" aria-hidden="true"></i>
+ Login with Google
+</button>
+
+<h2>{{name}}</h2>
+<p>{{email}}</p>
+<img [src]="avatar" alt="">
+
+<button appFbLogin
+ class="btn btn-primary" (loginOk)="loggedFacebook($event)"
+ (loginError)="showError($event)" [scope]="['email', 'public_profile']">
+ <i class="fab fa-facebook" aria-hidden="true"></i>
+ Facebook
+</button>
