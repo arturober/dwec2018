@@ -1,0 +1,19 @@
+.container {
+  float: left;
+  margin-right: 20px;
+}
+
+.chat-container {
+  height: 200px;
+  width: 250px;
+  padding: 10px 20px;
+
+  button,input {
+    font-size: 1.5em;
+  }
+ }
+
+ p.mine {
+  text-align: right;
+  color: darkblue;
+ }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-maps": {
+    "angular-chat": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-maps",
+            "outputPath": "dist/angular-chat",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,9 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./node_modules/mapbox-gl/dist/mapbox-gl.css",
-              "./node_modules/@mapbox/mapbox-gl-geocoder/lib/mapbox-gl-geocoder.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -63,18 +61,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-maps:build"
+            "browserTarget": "angular-chat:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-maps:build:production"
+              "browserTarget": "angular-chat:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-maps:build"
+            "browserTarget": "angular-chat:build"
           }
         },
         "test": {
@@ -108,7 +106,7 @@
         }
       }
     },
-    "angular-maps-e2e": {
+    "angular-chat-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -117,11 +115,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-maps:serve"
+            "devServerTarget": "angular-chat:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-maps:serve:production"
+              "devServerTarget": "angular-chat:serve:production"
             }
           }
         },
@@ -137,5 +135,5 @@
       }
     }
   },
-  "defaultProject": "angular-maps"
+  "defaultProject": "angular-chat"
 }
