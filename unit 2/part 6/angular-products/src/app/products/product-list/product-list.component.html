@@ -1,0 +1,36 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{title}}
+    <button class="btn btn-sm btn-light ml-4" (click)="showAddProduct = true" *ngIf="!showAddProduct">
+      New Product</button>
+  </div>
+  <div class="card-block">
+    <form class="form mt-3">
+      <div class="form-group row">
+        <label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filter:</label>
+        <div class="col-sm-5">
+          <input type="text" [(ngModel)]="search" class="form-control" name="filterDesc" id="filterDesc" placeholder="Filter...">
+        </div>
+        <label class="col-form-label col-sm-5">
+          Filtered by: {{search}}</label>
+      </div>
+    </form>
+    <div *ngIf="products.length" @productList>
+      <div class="row headers no-gutters">
+        <div class="col-3">
+          <button class="btn btn-sm" [ngClass]="{'btn-danger': showImages, 'btn-primary': !showImages}" (click)="toggleImage()">
+            {{showImage?'Hide':'Show'}} images
+          </button></div>
+        <div class="col-4">{{headers.description}}</div>
+        <div class="col">{{headers.price}}</div>
+        <div class="col">{{headers.available}}</div>
+        <div class="col">{{headers.rating}}</div>
+      </div>
+      <product-item class="row no-gutters" [product]="product"
+        [showImage]="showImage" [@productItem]="product.state"
+        (click)="toggleSelected(product)"
+        *ngFor="let product of products | productFilter:search">
+      </product-item>
+    </div>
+  </div>
+</div>
