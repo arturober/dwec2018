@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary"> 
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>inputs</ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="email" name="email" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input type="password" name="password" required>
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Birth date</ion-label>
+        <ion-datetime display-format="DD/MM/YYYY" picker-format="DD MMMM YYYY"></ion-datetime>
+      </ion-item>
+    </ion-list>
+    <p>
+      <ion-button type="submit" color="primary" 
+        expand="block">Login</ion-button>
+    </p>
+  </form>
+</ion-content>
