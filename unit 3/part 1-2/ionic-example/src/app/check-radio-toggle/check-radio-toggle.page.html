@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>check-radio-toggle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Cheese</ion-label>
+      <ion-checkbox disabled="true" checked="true"color="primary" slot="start"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sausage</ion-label>
+      <ion-checkbox color="secondary" slot="start"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mushrooms</ion-label>
+      <ion-checkbox color="danger" slot="start"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-radio-group>
+      <ion-item>
+        <ion-label>Friends</ion-label>
+        <ion-radio value="friends" checked color="primary"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Family</ion-label>
+        <ion-radio value="family" color="secondary"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Enemies</ion-label>
+        <ion-radio value="enemies" color="danger"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Cheese</ion-label>
+      <ion-toggle disabled="true" checked="true"color="primary" slot="start"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Sausage</ion-label>
+      <ion-toggle color="secondary" slot="start"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Mushrooms</ion-label>
+      <ion-toggle color="danger" slot="start"></ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

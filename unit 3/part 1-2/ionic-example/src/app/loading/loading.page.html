@@ -3,10 +3,11 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>check-radio-toggle</ion-title>
+    <ion-title>loading</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  
+  <ion-button (click)="loadInfo()">Load Info</ion-button>
+  {{info}}
 </ion-content>
