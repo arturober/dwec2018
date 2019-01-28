@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Device Motion & Orientation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button block color="secondary" [disabled]="isSubscribed" (click)="startMotion()">Start motion</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button block color="danger" [disabled]="!isSubscribed" (click)="stopMotion()">Stop motion</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <p>X: {{acceleration?.x}}</p>
+        <p>Y: {{acceleration?.y}}</p>
+        <p>Z: {{acceleration?.z}}</p>
+        <p>{{acceleration | json}}</p>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row>
+      <ion-col>
+        <ion-button block color="secondary" [disabled]="isSubscribed2" (click)="startOrientation()">Start orientation</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button block color="danger" [disabled]="!isSubscribed2" (click)="stopOrientation()">Stop orientation</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <p>{{orientation | json}}</p>
+      </ion-col>
+    </ion-row>
+    
+  </ion-grid>
+</ion-content>

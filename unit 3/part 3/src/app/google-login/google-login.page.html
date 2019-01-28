@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Google Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="isLogged">
+    <ion-item text-wrap>
+      <ion-avatar slot="start">
+        <ion-img [src]="response.imageUrl"></ion-img>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{response.displayName}}</h2>
+        <p>{{response.email}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-row>
+    <ion-col>
+      <ion-button expand="block" color="danger" (click)="login()" [disabled]="isLogged">Login with Google</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button expand="block" color="danger" fill="outline" (click)="logout()" [disabled]="!isLogged">Logout</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-button expand="block" color="primary" (click)="disconnect()" 
+	   	[disabled]="!isLogged">Disconnect account</ion-button>
+  {{response | json}}
+</ion-content>
