@@ -46,6 +46,11 @@ export class AppComponent {
       icon: 'add-circle'
     },
     {
+      title: 'Gestures',
+      url: '/gestures',
+      icon: 'hand'
+    },
+    {
       title: 'Horizontal Scroll',
       url: '/horizontal-scroll',
       icon: 'arrow-dropright-circle'

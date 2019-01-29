@@ -31,6 +31,7 @@ const routes: Routes = [
   { path: 'toolbars', loadChildren: './toolbars/toolbars.module#ToolbarsPageModule' },
   { path: 'virtual-scroll', loadChildren: './virtual-scroll/virtual-scroll.module#VirtualScrollPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'gestures', loadChildren: './gestures/gestures.module#GesturesPageModule' },
 ];
 
 @NgModule({
