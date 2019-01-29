@@ -3,10 +3,22 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>contacts</ion-title>
+    <ion-title>Contacts</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <!-- <ion-button expand="block" (click)="pick()">Pick contact</ion-button>
+  <ion-list *ngIf="contact !== null">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img [src]="contact.photos?contact.photos[0].value:''">
+      </ion-avatar>
+      <h2>{{contact.name.formatted}}</h2>
+      <p>{{contact.phoneNumbers[0].value}}</p>
+    </ion-item>
+  </ion-list>
+  <p *ngIf="contact !== null">
+    {{contact | json}}
+  </p> -->
 </ion-content>

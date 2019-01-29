@@ -8,5 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-button expand="block" (click)="pickImages()">Pick images</ion-button>
+  <div *ngFor="let img of images; let i = index">
+    <ion-row *ngIf="i % 2 === 0">
+      <ion-col>
+        <img [src]="img">
+      </ion-col>
+      <ion-col>
+        <img [src]="images[i + 1]" *ngIf="i + 1 < images.length">
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

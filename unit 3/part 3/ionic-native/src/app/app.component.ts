@@ -21,6 +21,16 @@ export class AppComponent {
       icon: 'home'
     },
     {
+      title: 'Contacts',
+      url: '/contacts',
+      icon: 'home'
+    },
+    {
+      title: 'Facebook Login',
+      url: '/facebook-login',
+      icon: 'home'
+    },
+    {
       title: 'Geolocation',
       url: '/geolocation',
       icon: 'home'
@@ -28,6 +38,11 @@ export class AppComponent {
     {
       title: 'Google Login',
       url: '/google-login',
+      icon: 'home'
+    },
+    {
+      title: 'Image Picker',
+      url: '/image-picker',
       icon: 'home'
     },
     {

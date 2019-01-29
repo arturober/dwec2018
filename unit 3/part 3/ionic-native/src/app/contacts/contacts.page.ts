@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Contacts, Contact } from '@ionic-native/contacts/ngx';
 
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.page.html',
   styleUrls: ['./contacts.page.scss'],
 })
-export class ContactsPage implements OnInit {
+export class ContactsPage {
+  // contact: Contact = null;
 
-  constructor() { }
+  // constructor(private contacts: Contacts) { }
 
-  ngOnInit() {
-  }
-
+  // async pick() {
+  //   this.contact = await this.contacts.pickContact();
+  // }
 }

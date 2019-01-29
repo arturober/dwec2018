@@ -17,6 +17,10 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 import { SQLite } from '@ionic-native/sqlite/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { ImagePicker } from '@ionic-native/image-picker/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+// import { Contacts } from '@ionic-native/contacts/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +42,11 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
     Geolocation,
     LocalNotifications,
     SQLite,
-    GooglePlus
+    GooglePlus,
+    Facebook,
+    ImagePicker,
+    WebView,
+    // Contacts
   ],
   bootstrap: [AppComponent]
 })
