@@ -17,8 +17,6 @@ const routes: Routes = [
   { path: 'google-login', loadChildren: './google-login/google-login.module#GoogleLoginPageModule' },
   { path: 'facebook-login', loadChildren: './facebook-login/facebook-login.module#FacebookLoginPageModule' },
   { path: 'image-picker', loadChildren: './image-picker/image-picker.module#ImagePickerPageModule' },
-  { path: 'contacts', loadChildren: './contacts/contacts.module#ContactsPageModule' },
-  { path: 'admob', loadChildren: './admob/admob.module#AdmobPageModule' },
   { path: 'social-sharing', loadChildren: './social-sharing/social-sharing.module#SocialSharingPageModule' },
   { path: 'driving-directions', loadChildren: './driving-directions/driving-directions.module#DrivingDirectionsPageModule' },
   { path: 'flash', loadChildren: './flash/flash.module#FlashPageModule' },

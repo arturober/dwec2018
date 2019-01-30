@@ -20,7 +20,6 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-// import { Contacts } from '@ionic-native/contacts/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,7 +45,6 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     Facebook,
     ImagePicker,
     WebView,
-    // Contacts
   ],
   bootstrap: [AppComponent]
 })

@@ -21,11 +21,6 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'Contacts',
-      url: '/contacts',
-      icon: 'home'
-    },
-    {
       title: 'Facebook Login',
       url: '/facebook-login',
       icon: 'home'
