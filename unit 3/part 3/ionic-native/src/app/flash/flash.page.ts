@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
 
 @Component({
   selector: 'app-flash',
   templateUrl: './flash.page.html',
   styleUrls: ['./flash.page.scss'],
 })
-export class FlashPage implements OnInit {
+export class FlashPage {
+  on = false;
 
-  constructor() { }
+  constructor(public flash: Flashlight) { }
 
-  ngOnInit() {
+  async toggleFlash() {
+    await this.flash.toggle();
+    this.on = this.flash.isSwitchedOn();
   }
-
 }

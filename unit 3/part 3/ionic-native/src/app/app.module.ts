@@ -20,6 +20,11 @@ import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Facebook } from '@ionic-native/facebook/ngx';
 import { ImagePicker } from '@ionic-native/image-picker/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
+import { Flashlight } from '@ionic-native/flashlight/ngx';
+import { Network } from '@ionic-native/network/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +32,10 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: 'pk.eyJ1IjoiYXJ0dXJvYmVyIiwiYSI6ImNqb2l2ZDFhZTA0azkzcHAyMGprcm04a3MifQ.2YFN4pXKpQmAPuVgLExW1w'
+    })
   ],
   providers: [
     StatusBar,
@@ -45,6 +53,10 @@ import { WebView } from '@ionic-native/ionic-webview/ngx';
     Facebook,
     ImagePicker,
     WebView,
+    LaunchNavigator,
+    Flashlight,
+    Network,
+    SocialSharing
   ],
   bootstrap: [AppComponent]
 })

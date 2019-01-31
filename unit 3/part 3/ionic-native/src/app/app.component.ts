@@ -13,52 +13,72 @@ export class AppComponent {
     {
       title: 'Barcode',
       url: '/barcode',
-      icon: 'home'
+      icon: 'barcode'
     },
     {
       title: 'Camera',
       url: '/camera',
-      icon: 'home'
+      icon: 'camera'
+    },
+    {
+      title: 'Driving directions',
+      url: '/driving-directions',
+      icon: 'navigate'
     },
     {
       title: 'Facebook Login',
       url: '/facebook-login',
-      icon: 'home'
+      icon: 'logo-facebook'
+    },
+    {
+      title: 'Flash',
+      url: '/flash',
+      icon: 'flashlight'
     },
     {
       title: 'Geolocation',
       url: '/geolocation',
-      icon: 'home'
+      icon: 'pin'
     },
     {
       title: 'Google Login',
       url: '/google-login',
-      icon: 'home'
+      icon: 'logo-googleplus'
     },
     {
       title: 'Image Picker',
       url: '/image-picker',
-      icon: 'home'
+      icon: 'images'
     },
     {
       title: 'Local notifications',
       url: '/local-notifications',
-      icon: 'home'
+      icon: 'notifications'
     },
     {
       title: 'Motion & Orientation',
       url: '/device-motion',
-      icon: 'home'
+      icon: 'move'
+    },
+    {
+      title: 'Network',
+      url: '/network',
+      icon: 'wifi'
+    },
+    {
+      title: 'Social sharing',
+      url: '/social-sharing',
+      icon: 'share'
     },
     {
       title: 'SQLite',
       url: '/sqlite',
-      icon: 'home'
+      icon: 'grid'
     },
     {
       title: 'Vibration',
       url: '/vibration',
-      icon: 'home'
+      icon: 'pulse'
     },
   ];
 

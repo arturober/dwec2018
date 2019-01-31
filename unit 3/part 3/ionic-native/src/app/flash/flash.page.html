@@ -1,9 +1,14 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>flash</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-button expand="block" [color]="on ? 'danger' : 'success'" (click)="toggleFlash()">
+    Turn {{on ? 'off' : 'on'}}
+  </ion-button>
 </ion-content>
