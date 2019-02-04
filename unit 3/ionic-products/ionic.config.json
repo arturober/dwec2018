@@ -1,0 +1,7 @@
+{
+  "name": "ionic-products",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
