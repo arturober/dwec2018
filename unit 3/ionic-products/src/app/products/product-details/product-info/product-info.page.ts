@@ -21,7 +21,6 @@ export class ProductInfoPage implements OnInit {
   ngOnInit() {
     this.events.subscribe('product', product => {
       this.product = product;
-      this.events.unsubscribe('product');
     });
   }
 

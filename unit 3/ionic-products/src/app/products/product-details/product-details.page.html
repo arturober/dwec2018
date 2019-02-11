@@ -6,7 +6,7 @@
     <ion-title>{{product?.description}}</ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-tabs>
+<ion-tabs (ionTabsDidChange)="tabsChange($event)">
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="info">
       <ion-icon name="information-circle"></ion-icon>

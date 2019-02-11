@@ -25,4 +25,10 @@ export class ProductDetailsPage implements OnInit {
     );
   }
 
+  tabsChange(events) {
+    if (events.tab === 'info') {
+      this.events.publish('product', this.product);
+    }
+  }
+
 }
