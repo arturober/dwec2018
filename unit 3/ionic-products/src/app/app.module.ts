@@ -13,6 +13,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { Camera } from '@ionic-native/camera/ngx';
+import { Firebase } from '@ionic-native/firebase/ngx';
 import { BaseUrlInterceptor } from './interceptors/base-url.interceptor';
 import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
 
@@ -40,6 +41,7 @@ import { AuthTokenInterceptor } from './interceptors/auth-token.interceptor';
       multi: true,
     },
     Camera,
+    Firebase,
   ],
   bootstrap: [AppComponent]
 })

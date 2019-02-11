@@ -4,6 +4,7 @@ import { Platform, NavController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './auth/services/auth.service';
+import { Firebase } from '@ionic-native/firebase/ngx';
 
 @Component({
   selector: 'app-root',
