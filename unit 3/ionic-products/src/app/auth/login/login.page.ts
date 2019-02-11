@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AlertController, Platform } from '@ionic/angular';
 import { Firebase } from '@ionic-native/firebase/ngx';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginPage implements OnInit {
     private authService: AuthService,
     private router: Router,
     private alertCtrl: AlertController,
-    private firebase: Firebase,
+    private oneSignal: OneSignal,
     private platform: Platform
   ) {}
 
@@ -25,9 +26,9 @@ export class LoginPage implements OnInit {
   }
 
   async login() {
-    const token = this.platform.is('cordova') ? await this.firebase.getToken() : null;
+    const oneSignalId = (await this.oneSignal.getIds()).userId;
 
-    this.authService.login(this.email, this.password, token).subscribe(
+    this.authService.login(this.email, this.password, oneSignalId).subscribe(
       () => this.router.navigate(['/products']),
       async error => {
         (await this.alertCtrl.create({
